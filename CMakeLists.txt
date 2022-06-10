@@ -41,7 +41,7 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "Build type" FORCE)
     #set(CMAKE_BUILD_TYPE Debug)
 endif()
-set(CMAKE_CUDA_ARCHITECTURES52 60 70 86 CACHE STRING "cuda archs" )
+set(CMAKE_CUDA_ARCHITECTURES 52 60 70 86 CACHE STRING "cuda archs" )
 
 #set the default path for built executables to the "bin" directory
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
@@ -112,7 +112,7 @@ if (USE_MPI AND HDF5_IS_PARALLEL)
 endif()
 
 
-find_package(GTest) 
+find_package(GTest)
 if (NOT GTEST_FOUND)
 	message(WARNING "gtest library not found, some tests will not be run")
 endif()
@@ -191,7 +191,7 @@ find_program(PACKAGE_MAKER_PROGRAM PackageMaker
 if(EXISTS ${PACKAGE_MAKER_PROGRAM})
   list(APPEND CPACK_GENERATOR "PackageMaker")
 endif(EXISTS ${PACKAGE_MAKER_PROGRAM})
- 
+
 set(CPACK_GENERATOR "${CPACK_GENERATOR}")
 set(CPACK_MONOLITHIC_INSTALL 1)
 set(CPACK_SET_DESTDIR ON)
